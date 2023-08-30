@@ -34,32 +34,32 @@ export default function City() {
   return (
     <div className={styles.city}>
       <div className={styles.row}>
-        <h6>City name {cityId}</h6>
+        <h6>Nome da cidade {cityId}</h6>
         <h3>
           <span>{flagemojiToPNG(emoji)}</span> {cityName}
         </h3>
       </div>
 
       <div className={styles.row}>
-        <h6>You went to {cityName} on</h6>
+        <h6>Você foi para {cityName} em</h6>
         <p>{formatDate(date || null)}</p>
       </div>
 
       {notes && (
         <div className={styles.row}>
-          <h6>Your notes</h6>
+          <h6>Anotações</h6>
           <p>{notes}</p>
         </div>
       )}
 
       <div className={styles.row}>
-        <h6>Learn more</h6>
+        <h6>Descubra mais</h6>
         <a
           href={`https://en.wikipedia.org/wiki/${cityName}`}
           target="_blank"
           rel="noreferrer"
         >
-          Check out {cityName} on Wikipedia &rarr;
+          Olhe sobre {cityName} na Wikipedia &rarr;
         </a>
       </div>
 

@@ -8,17 +8,16 @@ export default function Home() {
       <Navigation />
       <section>
         <h1>
-          You travel the world.
-          <br />
-          WorldWise keeps track of your adventures.
+          Você viaja o Mundo!
+          <br />O WorldWise guarda suas aventuras.
         </h1>
         <h2>
-          A world map that tracks your footsteps into every city you can think
-          of. Never forget your wonderful experiences, and show your friends how
-          you have wandered the world.
+          Um mapa mundi que guarda seus passos em cada cidade que consegue
+          imaginar. Jamais esqueça suas experiências maravilhosas e mostre aos
+          seus amigos como você visitou o mundo.
         </h2>
         <Link to="/app" className="cta">
-          Start tracking now
+          Começa a salvar suas viagens!
         </Link>
       </section>
     </main>

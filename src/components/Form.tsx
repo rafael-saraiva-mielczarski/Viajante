@@ -24,7 +24,7 @@ function Form() {
   return (
     <form className={styles.form}>
       <div className={styles.row}>
-        <label htmlFor="cityName">City name</label>
+        <label htmlFor="cityName">Nome da Cidade</label>
         <input
           id="cityName"
           onChange={(e) => setCityName(e.target.value)}
@@ -34,7 +34,7 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="date">When did you go to {cityName}?</label>
+        <label htmlFor="date">Quando você foi para {cityName}?</label>
         <input
           id="date"
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
@@ -45,7 +45,7 @@ function Form() {
       </div>
 
       <div className={styles.row}>
-        <label htmlFor="notes">Notes about your trip to {cityName}</label>
+        <label htmlFor="notes">Anotações sobre a viagem para {cityName}</label>
         <textarea
           id="notes"
           onChange={(e) => setNotes(e.target.value)}
@@ -60,7 +60,7 @@ function Form() {
             e.preventDefault();
           }}
         >
-          Add
+          Adicionar
         </Button>
         <button
           onClick={(e) => {
@@ -68,7 +68,7 @@ function Form() {
             navigate(-1);
           }}
         >
-          &larr; Back
+          &larr; Voltar
         </button>
       </div>
     </form>

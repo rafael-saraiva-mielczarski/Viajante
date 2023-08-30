@@ -11,7 +11,7 @@ export default function CountriesList() {
 
   if (!cities.length)
     return (
-      <Message message="Add your first city by clicking on a city on the map" />
+      <Message message="Adicione seu primiero país visitado clicando no Mapa!" />
     );
 
   const countries = cities.reduce((arr: any, city: CityInterface) => {

@@ -9,14 +9,16 @@ export default function Product() {
       <section>
         <div>
           <h2>
-            Simple pricing.
+            Simples
             <br />
-            Just $9/month.
+            Só 9R$/mês.
           </h2>
           <p>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vitae vel
-            labore mollitia iusto. Recusandae quos provident, laboriosam fugit
-            voluptatem iste.
+            Guardando memórias nunca foi tão acessível e especial! Com o nosso
+            Plano Mensal de 9 reais, você pode preservar momentos preciosos
+            todos os meses. Não perca a oportunidade de transformar cada mês em
+            uma cápsula do tempo digital. Inscreva-se agora e comece a salvar
+            suas viagens!
           </p>
         </div>
         <img src="img-2.jpg" alt="overview of a large city with skyscrapers" />

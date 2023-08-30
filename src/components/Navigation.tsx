@@ -8,10 +8,10 @@ export default function Navigation() {
       <Logo />
       <ul>
         <li>
-          <NavLink to="/pricing">Pricing</NavLink>
+          <NavLink to="/pricing">Preço</NavLink>
         </li>
         <li>
-          <NavLink to="/product">Product</NavLink>
+          <NavLink to="/product">Produto</NavLink>
         </li>
         <li>
           <NavLink to="/login" className={styles.ctaLink}>Login</NavLink>

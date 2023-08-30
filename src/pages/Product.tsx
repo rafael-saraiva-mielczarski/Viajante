@@ -11,17 +11,32 @@ export default function Product() {
           alt="person with dog overlooking mountain with sunset"
         />
         <div>
-          <h2>About WorldWide.</h2>
+          <h2>Sobre o WorldWide.</h2>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo est
-            dicta illum vero culpa cum quaerat architecto sapiente eius non
-            soluta, molestiae nihil laborum, placeat debitis, laboriosam at fuga
-            perspiciatis?
+            Explore um mundo de memórias de viagem conosco! Com recursos
+            incríveis, nossa plataforma torna fácil guardar e reviver cada
+            aventura:
           </p>
           <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Corporis
-            doloribus libero sunt expedita ratione iusto, magni, id sapiente
-            sequi officiis et.
+            Diário de Viagem: Registre cada detalhe de suas jornadas, de lugares
+            a pessoas e experiências inesquecíveis.
+          </p>
+          <p>
+            Mapas Interativos: Veja suas viagens em mapas interativos,
+            destacando os lugares que você visitou.
+          </p>
+          <p>
+            Compartilhamento Simples: Compartilhe suas memórias com amigos e
+            familiares, permitindo que eles se juntem à sua jornada.
+          </p>
+          <p>
+            Backup Seguro: Mantenha suas memórias protegidas com backups
+            automáticos e seguros.
+          </p>
+          <p>
+            Com nosso aplicativo, suas viagens se tornam histórias cativantes
+            que podem ser revividas a qualquer momento. Baixe agora e comece a
+            criar seu próprio museu de aventuras!
           </p>
         </div>
       </section>

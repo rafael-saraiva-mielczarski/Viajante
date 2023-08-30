@@ -12,7 +12,7 @@ export default function CityList() {
 
   if (!cities.length)
     return (
-      <Message message="Add you first visited city by clicking the map!" />
+      <Message message="Adicione seu primiero país visitado clicando no Mapa!" />
     );
   return (
     <ul className={styles.cityList}>
