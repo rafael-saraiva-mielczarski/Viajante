@@ -1,6 +1,7 @@
 import styles from "./Login.module.css";
 import { useState } from "react";
 import Navigation from "../components/Navigation";
+import Button from "../components/Button";
 
 export default function Login() {
   // PRE-FILL FOR DEV PURPOSES
@@ -32,7 +33,9 @@ export default function Login() {
         </div>
 
         <div>
-          <button className={styles.ctaLink}>Login</button>
+          <Button type="primary" onClick={() => {}}>
+            Login
+          </Button>
         </div>
       </form>
     </main>

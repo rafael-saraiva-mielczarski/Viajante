@@ -9,6 +9,8 @@ type CitiesProviderProps = {
 type CitiesContextType = {
   cities: any;
   isLoading: boolean;
+  currentCity: any;
+  getCity: any;
 };
 
 //Criando o Context
@@ -20,6 +22,7 @@ const URL = "http://localhost:8000";
 function CitiesProvider({ children }: CitiesProviderProps) {
   const [cities, setCities] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
+  const [currentCity, setCurrentCity] = useState({});
 
   useEffect(() => {
     async function fetchCities() {
@@ -37,9 +40,22 @@ function CitiesProvider({ children }: CitiesProviderProps) {
     fetchCities();
   }, []);
 
+  async function getCity(id: string) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${URL}/cities/${id}`);
+      const data = await res.json();
+      setCurrentCity(data);
+    } catch {
+      alert("Error fetching data");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   //Retornando o CitiesContext.Provider e os values que queremos que a aplicação tenha acesso, dentro passamos o children pois essa func/componente vai englobar todo o App component
   return (
-    <CitiesContext.Provider value={{ cities, isLoading }}>
+    <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity }}>
       {children}
     </CitiesContext.Provider>
   );

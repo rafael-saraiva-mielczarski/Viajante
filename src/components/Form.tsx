@@ -1,10 +1,10 @@
 // "https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=0&longitude=0"
 
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
 import styles from "./Form.module.css";
+import BackButton from "./ButtonBack";
 
 export function convertToEmoji(countryCode: any) {
   const codePoints = countryCode
@@ -16,10 +16,8 @@ export function convertToEmoji(countryCode: any) {
 
 function Form() {
   const [cityName, setCityName] = useState("");
-  //   const [country, setCountry] = useState("");
   const [date, setDate] = useState<any>(new Date());
   const [notes, setNotes] = useState("");
-  const navigate = useNavigate();
 
   return (
     <form className={styles.form}>
@@ -30,7 +28,6 @@ function Form() {
           onChange={(e) => setCityName(e.target.value)}
           value={cityName}
         />
-        {/* <span className={styles.flag}>{emoji}</span> */}
       </div>
 
       <div className={styles.row}>
@@ -62,14 +59,7 @@ function Form() {
         >
           Adicionar
         </Button>
-        <button
-          onClick={(e) => {
-            e.preventDefault();
-            navigate(-1);
-          }}
-        >
-          &larr; Voltar
-        </button>
+        <BackButton />
       </div>
     </form>
   );

@@ -17,7 +17,7 @@ export default function Home() {
           seus amigos como você visitou o mundo.
         </h2>
         <Link to="/app" className="cta">
-          Começa a salvar suas viagens!
+          Comece a salvar suas viagens!
         </Link>
       </section>
     </main>
