@@ -3,7 +3,7 @@ import styles from "./CountriesList.module.css";
 import CountryItem from "./CountryItem";
 import Message from "./Message";
 import { useCities } from "../contexts/CitiesContext";
-import { CityInterface } from "../types/CityType";
+import { CityInterface } from "../types/CityInterface";
 
 export default function CountriesList() {
   const { cities, isLoading } = useCities();
@@ -15,8 +15,8 @@ export default function CountriesList() {
     );
 
   const countries = cities.reduce((arr: any, city: CityInterface) => {
-    if (!arr.map((el: any) => el.country).includes(city.country))
-      return [...arr, { country: city.country, emoji: city.emoji }];
+    if (!arr.map((el: any) => el.country).includes(city.countryName))
+      return [...arr, { country: city.countryName, emoji: city.emoji }];
     else return arr;
   }, []);
 

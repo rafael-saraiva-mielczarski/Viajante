@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
 
 import styles from "./CityItem.module.css";
+import { MouseEvent } from "react";
 
 const formatDate = (date: any) =>
   new Intl.DateTimeFormat("en", {
@@ -20,8 +21,13 @@ const flagemojiToPNG = (flag: any) => {
 };
 
 export default function CityItem({ city }: any) {
-  const { currentCity } = useCities();
+  const { currentCity, deleteCity } = useCities();
   const { cityName, emoji, date, id, position } = city;
+
+  function handleClick(e: MouseEvent<HTMLElement>) {
+    e.preventDefault();
+    deleteCity(id);
+  }
 
   return (
     <li>
@@ -34,7 +40,9 @@ export default function CityItem({ city }: any) {
         <span className={styles.emoji}>{flagemojiToPNG(emoji)}</span>
         <h3 className={styles.name}>{cityName}</h3>
         <time className={styles.date}>{formatDate(date)}</time>
-        <button className={styles.deleteBtn}>&times;</button>
+        <button className={styles.deleteBtn} onClick={handleClick}>
+          &times;
+        </button>
       </Link>
     </li>
   );

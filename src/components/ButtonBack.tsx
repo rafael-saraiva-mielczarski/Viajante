@@ -1,7 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
 
-export default function BackButton() {
+type BackButtonProps = {
+  navRoute: string;
+};
+
+export default function BackButton({ navRoute }: BackButtonProps) {
   const navigate = useNavigate();
 
   return (
@@ -9,7 +13,7 @@ export default function BackButton() {
       type="back"
       onClick={(e) => {
         e.preventDefault();
-        navigate(-1);
+        navigate(navRoute);
       }}
     >
       &larr; Back

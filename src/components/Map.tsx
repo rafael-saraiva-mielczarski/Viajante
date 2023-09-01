@@ -2,7 +2,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
-import { CityInterface } from "../types/CityType";
+import { CityInterface } from "../types/CityInterface";
 import {
   MapContainer,
   TileLayer,
@@ -26,7 +26,7 @@ const flagemojiToPNG = (flag: any) => {
 
 export default function Map() {
   const { cities } = useCities();
-  const [mapPosition, setMapPosition] = useState([40, 0]);
+  const [mapPosition, setMapPosition] = useState<number[]>([40, 0]);
   const [searchParams] = useSearchParams();
   const {
     isLoading: isLoadingPosition,
@@ -91,7 +91,8 @@ function ChangeCenter({ position }: any) {
 function DetectClick() {
   const navigate = useNavigate();
 
-  useMapEvent({
-    click: (e) => navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`),
-  });
+  useMapEvent("click", (e) =>
+    navigate(`form?lat=${e.latlng.lat}&lng=${e.latlng.lng}`)
+  );
+  return null;
 }

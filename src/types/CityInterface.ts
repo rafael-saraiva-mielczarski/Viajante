@@ -1,12 +1,12 @@
 export interface CityInterface {
     cityName: string,
-    country: string,
+    countryName: string,
     emoji: string,
     date: string,
     notes: string,
     position: {
-        lat: number,
-        lng: number
+        lat: any,
+        lng: any,
     },
-    id: number
+    id?: string
 }

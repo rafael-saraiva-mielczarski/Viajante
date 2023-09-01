@@ -1,16 +1,19 @@
 import { ReactNode, useContext } from "react";
 import { createContext } from "react";
 import { useState, useEffect } from "react";
+import { CityInterface } from "../types/CityInterface";
 
 type CitiesProviderProps = {
   children: ReactNode;
 };
 
 type CitiesContextType = {
-  cities: any;
+  cities: CityInterface[];
   isLoading: boolean;
-  currentCity: any;
-  getCity: any;
+  currentCity: CityInterface;
+  getCity: (id: string | undefined) => void;
+  createCity: (newCity: CityInterface) => void;
+  deleteCity: (id: string) => void;
 };
 
 //Criando o Context
@@ -20,9 +23,9 @@ const URL = "http://localhost:8000";
 
 //Passando o children como prop e adicionando toda a lógica relacionada com a busca de dados de cidades na API
 function CitiesProvider({ children }: CitiesProviderProps) {
-  const [cities, setCities] = useState([]);
+  const [cities, setCities] = useState<CityInterface[]>([]);
   const [isLoading, setIsLoading] = useState(false);
-  const [currentCity, setCurrentCity] = useState({});
+  const [currentCity, setCurrentCity] = useState<any>({});
 
   useEffect(() => {
     async function fetchCities() {
@@ -40,7 +43,7 @@ function CitiesProvider({ children }: CitiesProviderProps) {
     fetchCities();
   }, []);
 
-  async function getCity(id: string) {
+  async function getCity(id: string | undefined) {
     try {
       setIsLoading(true);
       const res = await fetch(`${URL}/cities/${id}`);
@@ -53,9 +56,51 @@ function CitiesProvider({ children }: CitiesProviderProps) {
     }
   }
 
+  async function createCity(newCity: CityInterface) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${URL}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+      const data = await res.json();
+      setCities((cities) => [...cities, data]);
+    } catch {
+      alert("Error fetching data");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
+  async function deleteCity(id: string | undefined) {
+    try {
+      setIsLoading(true);
+      await fetch(`${URL}/cities/${id}`, {
+        method: "DELETE",
+      });
+      setCities((cities) => cities.filter((city) => city.id !== id));
+    } catch {
+      alert("Error fetching data");
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   //Retornando o CitiesContext.Provider e os values que queremos que a aplicação tenha acesso, dentro passamos o children pois essa func/componente vai englobar todo o App component
   return (
-    <CitiesContext.Provider value={{ cities, isLoading, currentCity, getCity }}>
+    <CitiesContext.Provider
+      value={{
+        cities,
+        isLoading,
+        currentCity,
+        getCity,
+        createCity,
+        deleteCity,
+      }}
+    >
       {children}
     </CitiesContext.Provider>
   );

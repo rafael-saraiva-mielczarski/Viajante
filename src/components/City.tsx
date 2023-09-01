@@ -71,7 +71,7 @@ export default function City() {
       </div>
 
       <div>
-        <BackButton />
+        <BackButton navRoute={"/app"} />
       </div>
     </div>
   );
