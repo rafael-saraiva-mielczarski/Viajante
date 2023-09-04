@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useCities } from "../contexts/CitiesContext";
 import { useGeolocation } from "../hooks/useGeolocation";
 import { CityInterface } from "../types/CityInterface";
+import { flagemojiToPNG } from "../utils/flagEmojiToPng";
 import {
   MapContainer,
   TileLayer,
@@ -14,15 +15,6 @@ import {
 
 import styles from "./Map.module.css";
 import Button from "./Button";
-
-const flagemojiToPNG = (flag: any) => {
-  var countryCode = Array.from(flag, (codeUnit: any) => codeUnit.codePointAt())
-    .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-    .join("");
-  return (
-    <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
-  );
-};
 
 export default function Map() {
   const { cities } = useCities();
@@ -62,6 +54,7 @@ export default function Map() {
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+          noWrap={true}
         />
         {cities.map((city: CityInterface) => (
           <Marker

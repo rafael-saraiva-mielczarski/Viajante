@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { useUrlPosition } from "../hooks/useUrlPosition";
 import { useCities } from "../contexts/CitiesContext";
 import { useNavigate } from "react-router-dom";
+import { convertToEmoji } from "../utils/convertToEmoji";
 
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
@@ -13,14 +14,6 @@ import styles from "./Form.module.css";
 import BackButton from "./ButtonBack";
 import Message from "./Message";
 import Spinner from "./Spinner";
-
-export function convertToEmoji(countryCode: any) {
-  const codePoints = countryCode
-    .toUpperCase()
-    .split("")
-    .map((char: any) => 127397 + char.charCodeAt());
-  return String.fromCodePoint(...codePoints);
-}
 
 const BASE_URL = "https://api.bigdatacloud.net/data/reverse-geocode-client";
 

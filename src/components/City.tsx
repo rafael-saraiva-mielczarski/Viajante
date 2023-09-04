@@ -1,27 +1,12 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useCities } from "../contexts/CitiesContext";
+import { flagemojiToPNG } from "../utils/flagEmojiToPng";
+import { formatDate } from "../utils/formatDate";
 
 import BackButton from "./ButtonBack";
 import styles from "./City.module.css";
 import Spinner from "./Spinner";
-
-const formatDate = (date: any) =>
-  new Intl.DateTimeFormat("en", {
-    day: "numeric",
-    month: "long",
-    year: "numeric",
-    weekday: "long",
-  }).format(new Date(date));
-
-const flagemojiToPNG = (flag: string) => {
-  var countryCode = Array.from(flag, (codeUnit: any) => codeUnit.codePointAt())
-    .map((char) => String.fromCharCode(char - 127397).toLowerCase())
-    .join("");
-  return (
-    <img src={`https://flagcdn.com/24x18/${countryCode}.png`} alt="flag" />
-  );
-};
 
 export default function City() {
   const { id } = useParams();
