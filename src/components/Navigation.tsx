@@ -14,7 +14,9 @@ export default function Navigation() {
           <NavLink to="/product">Produto</NavLink>
         </li>
         <li>
-          <NavLink to="/login" className={styles.ctaLink}>Login</NavLink>
+          <NavLink to="/login" className={styles.ctaLink}>
+            Entrar
+          </NavLink>
         </li>
       </ul>
     </nav>

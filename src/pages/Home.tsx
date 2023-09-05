@@ -9,7 +9,7 @@ export default function Home() {
       <section>
         <h1>
           Você viaja o Mundo!
-          <br />O WorldWise guarda suas aventuras.
+          <br />O Viajante guarda suas aventuras.
         </h1>
         <h2>
           Um mapa mundi que guarda seus passos em cada cidade que consegue

@@ -11,7 +11,7 @@ export default function Product() {
           alt="person with dog overlooking mountain with sunset"
         />
         <div>
-          <h2>Sobre o WorldWide.</h2>
+          <h2>Sobre o Viajante.</h2>
           <p>
             Explore um mundo de memórias de viagem conosco! Com recursos
             incríveis, nossa plataforma torna fácil guardar e reviver cada
