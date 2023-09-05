@@ -18,6 +18,7 @@ export default function Login() {
     e.preventDefault();
     if (email && password) {
       login(email, password);
+      navigate("/app");
     }
   }
 

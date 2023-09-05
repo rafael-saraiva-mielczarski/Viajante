@@ -13,7 +13,7 @@ export default function User() {
 
   return (
     <div className={styles.user}>
-      <button onClick={handleClick}>Logout</button>
+      <button onClick={handleClick}>Sair</button>
     </div>
   );
 }

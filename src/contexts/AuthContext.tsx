@@ -40,10 +40,10 @@ function AuthProvider({ children }: AuthProviderProps) {
           name: userCredential.user.displayName,
           email: userCredential.user.email,
         });
+        setIsAuthenticated(true);
         navigate("/app");
       })
       .catch((error) => {
-        navigate("/login");
         setIsAuthenticated(false);
         switch (error.code) {
           case "auth/email-already-in-use":
@@ -54,17 +54,16 @@ function AuthProvider({ children }: AuthProviderProps) {
             throw alert("Erro desconhecido");
         }
       });
-    setIsAuthenticated(true);
   }
 
   function login(email: string, password: string) {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         console.log(userCredential.user);
-        navigate("/login");
+        setIsAuthenticated(true);
+        navigate("/app");
       })
       .catch((error) => {
-        navigate("/");
         setIsAuthenticated(false);
         switch (error.code) {
           case "auth/wrong-password":
@@ -77,7 +76,6 @@ function AuthProvider({ children }: AuthProviderProps) {
             throw alert("Erro desconhecido");
         }
       });
-    setIsAuthenticated(true);
   }
 
   function logout() {
